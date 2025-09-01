@@ -9,28 +9,32 @@ namespace VSEngine2 {
 
     class VSSYSTEM_API VSFile {
         public:
-            enum class EOpenMode{
-                RB,
-                WB,
-                RT,
-                WT,
-                MAX
-            };
-            enum class EPath {
-                VSMAX_PATH = 256
-            };
-            enum class ESeekFlag {
-                SF_CUR,
-                SF_END,
-                SF_SET,
-                SF_MAX
-            };
+        enum //Open Mode
+        {
+            OM_RB,
+            OM_WB,
+            OM_RT,
+            OM_WT,
+            OM_MAX
+        };
+        enum
+        {
+            VSMAX_PATH = 256
+        };
+        enum	//Seek Flag
+        {
+            SF_CUR,
+            SF_END,
+            SF_SET,
+            SF_MAX
+
+        };
            VSFile();
            ~VSFile();
         bool Flush();  // 刷新文件缓冲区
 
         bool Seek(unsigned int uiOffset, unsigned int uiOrigin);  // 文件定位
-        bool Open(const TCHAR * pFileName, EOpenMode uiOpenMode);  // 打开文件
+        bool Open(const TCHAR * pFileName, unsigned int uiOpenMode);  // 打开文件
         bool Write(const void *pBuffer, unsigned int uiSize, unsigned int uiCount);  // 写入数据
         bool Read(void *pBuffer, unsigned int uiSize, unsigned int uiCount);  // 读取数据
 
@@ -52,7 +56,7 @@ namespace VSEngine2 {
         FILE  *m_pFileHandle;
         unsigned int m_uiOpenMode;
         unsigned int m_uiFileSize;
-        TCHAR m_tcFileName[EPath::VSMAX_PATH];
+        TCHAR m_tcFileName[VSMAX_PATH];
     };
 }
 
