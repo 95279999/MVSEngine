@@ -53,10 +53,10 @@ namespace VSEngine2 {
     protected:
         static TCHAR ms_cOpenMode[OM_MAX][5];
         static unsigned int m_uiSeekFlag[];
-        FILE  *m_pFileHandle;
-        unsigned int m_uiOpenMode;
-        unsigned int m_uiFileSize;
-        TCHAR m_tcFileName[VSMAX_PATH];
+        FILE  *m_pFileHandle{nullptr};
+        unsigned int m_uiOpenMode{};
+        unsigned int m_uiFileSize{};
+        TCHAR m_tcFileName[VSMAX_PATH]{};
     };
 }
 #endif //MVSENGINE_VSFILE_H

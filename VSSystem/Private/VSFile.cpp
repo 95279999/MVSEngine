@@ -98,3 +98,30 @@ bool VSFile::Open(const TCHAR *pFileName, unsigned int uiOpenMode)
 
     return true;
 }
+
+bool VSFile::Write(const void *pBuffer, unsigned int uiSize, unsigned int uiCount) {
+    VSMAC_ASSERT(m_pFileHandle);
+    VSMAC_ASSERT(pBuffer);
+    VSMAC_ASSERT(uiSize);
+    VSMAC_ASSERT(uiCount);
+    fwrite(pBuffer,uiSize,uiCount,m_pFileHandle);
+    return true;
+}
+bool VSFile::GetLine(void * pBuffer,unsigned int uiSize)
+{
+    VSMAC_ASSERT(m_pFileHandle);
+    VSMAC_ASSERT(pBuffer);
+    VSMAC_ASSERT(uiSize);
+    if (!_fgetts((TCHAR *)pBuffer,uiSize, m_pFileHandle))
+        return false;
+    return true;
+}
+bool VSFile::Read(void *pBuffer,unsigned int uiSize,unsigned int uiCount)
+{
+    VSMAC_ASSERT(m_pFileHandle);
+    VSMAC_ASSERT(pBuffer);
+    VSMAC_ASSERT(uiSize);
+    VSMAC_ASSERT(uiCount);
+    fread(pBuffer,uiSize,uiCount,m_pFileHandle);
+    return true;
+}

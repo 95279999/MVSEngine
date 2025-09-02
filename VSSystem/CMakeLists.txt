@@ -4,6 +4,7 @@ set(LIB_NAME VSSystem)
 set(SOURCES
         Private/VSSystem.cpp
         Private/VSFile.cpp
+        Private/VSTimer.cpp
         #Private/MemoryManager.cpp
         #Private/Logger.cpp
         #Private/ConfigManager.cpp
@@ -16,6 +17,7 @@ set(HEADERS
         VSSystemExports.h
         Public/VSSystem.h
         Public/VSFile.h
+        Public/VSTimer.h
         #Public/MemoryManager.h
         #Public/FileSystem.h
         #Public/Logger.h
