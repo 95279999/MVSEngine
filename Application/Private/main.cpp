@@ -7,7 +7,7 @@ int main() {
 
    std::cout << "Hello, World!" << std::endl;
    VSEngine2::VSSystem vs;
-   vs.text();
+
    return 0;
 
 }

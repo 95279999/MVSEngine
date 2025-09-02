@@ -66,12 +66,35 @@ assert(Expression);\
         static_assert(0, "No Implement!");;
 #endif
     }
+#define LOG_BUFFER_SIZE 65536
 
     class VSSYSTEM_API VSSystem
     {
     public:
-        VSSystem();
-        ~VSSystem();
-        void text();
+        static TCHAR ms_sLogBuffer[LOG_BUFFER_SIZE];//日志缓冲区
+        static DWORD ms_dwMainThreadID;
+
     };
+        inline bool VSMemcpy(void* pDest, const void* pSrc, USIZE_TYPE uiCountSize,USIZE_TYPE uiDestBufferSize,USIZE_TYPE uiSrcBufferSize = 0)
+        {
+            if (!uiDestBufferSize) {
+                uiDestBufferSize = uiCountSize;//防止内存溢出
+            }
+#ifdef  WINDOWS_PLATFORM
+            return(memcpy_s(pDest,uiDestBufferSize, pSrc, uiCountSize) == 0);
+#else
+            static_assert(0, "No Implement!");
+            return false;
+#endif
+        }
+        inline unsigned int VSStrLen(const TCHAR* pStr)
+        {
+#ifdef WINDOWS_PLATFORM
+            return (unsigned int)_tcslen(pStr);
+#else
+            static_assert(0, "No Implement!");
+            return 0;
+#endif
+        }
+
 }

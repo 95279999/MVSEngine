@@ -5,13 +5,7 @@
 
 #include <iostream>
 namespace VSEngine2 {
-    VSSystem::VSSystem() {
+        TCHAR VSSystem::ms_sLogBuffer[LOG_BUFFER_SIZE];
+        DWORD VSSystem::ms_dwMainThreadID = 0;
 
-    }
-    VSSystem::~VSSystem() {
-
-    }
-    void VSSystem::text() {
-        std::cout << "hello world from SYStem" << std::endl;
-    }
 }

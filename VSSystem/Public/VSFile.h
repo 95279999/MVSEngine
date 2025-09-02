@@ -5,10 +5,10 @@
 #ifndef MVSENGINE_VSFILE_H
 #define MVSENGINE_VSFILE_H
 #include "VSSystem.h"
-namespace VSEngine2 {
 
+namespace VSEngine2 {
     class VSSYSTEM_API VSFile {
-        public:
+    public:
         enum //Open Mode
         {
             OM_RB,
@@ -29,8 +29,8 @@ namespace VSEngine2 {
             SF_MAX
 
         };
-           VSFile();
-           ~VSFile();
+        VSFile();
+        ~VSFile();
         bool Flush();  // 刷新文件缓冲区
 
         bool Seek(unsigned int uiOffset, unsigned int uiOrigin);  // 文件定位
@@ -59,6 +59,4 @@ namespace VSEngine2 {
         TCHAR m_tcFileName[VSMAX_PATH];
     };
 }
-
-
 #endif //MVSENGINE_VSFILE_H
