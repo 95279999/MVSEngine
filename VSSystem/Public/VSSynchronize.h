@@ -223,5 +223,6 @@ namespace VSEngine2 {
             unsigned int m_uiThreadValueNum = 0;
             VSCriticalSection m_CriticalSection;
         };
+
 }
 #endif //MVSENGINE_VSSYNCHRONIZE_H
