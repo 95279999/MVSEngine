@@ -5,6 +5,8 @@ set(SOURCES
         Private/VSSystem.cpp
         Private/VSFile.cpp
         Private/VSTimer.cpp
+        Private/VSImage.cpp
+        Private/VSSynchronize.cpp
         #Private/MemoryManager.cpp
         #Private/Logger.cpp
         #Private/ConfigManager.cpp
@@ -18,6 +20,9 @@ set(HEADERS
         Public/VSSystem.h
         Public/VSFile.h
         Public/VSTimer.h
+        Public/VSSingleton.h
+        Public/VSImage.h
+        Public/VSSynchronize.h
         #Public/MemoryManager.h
         #Public/FileSystem.h
         #Public/Logger.h
@@ -54,6 +59,7 @@ target_include_directories(${LIB_NAME}
 # 链接依赖
 target_link_libraries(${LIB_NAME}
         PRIVATE
+        winmm.lib
         #ThirdParty::SomeThirdPartyLib
 )
 
